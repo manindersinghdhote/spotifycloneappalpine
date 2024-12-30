@@ -1,10 +1,17 @@
-# Use the latest alpine-node image as the base
-FROM mhart/alpine-node
+# Use the mhart/alpine-node image as the base
+FROM mhart/alpine-node:latest
 
-# Copy the HTML and CSS files to the NGINX HTML directory
-COPY . /app
+# Set the working directory inside the container
+WORKDIR /app
 
-CMD node /app/app.js
+# Copy the static files (HTML, CSS, etc.) to the working directory
+COPY . .
 
-# Expose port 80 for the web server
+# Install a simple HTTP server to serve static files
+RUN npm install -g http-server
+
+# Expose port 80 for the HTTP server
 EXPOSE 80
+
+# Command to run the HTTP server
+CMD ["http-server", ".", "-p", "80"]
