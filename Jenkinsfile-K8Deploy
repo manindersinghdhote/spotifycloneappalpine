@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_REPOSITORY = "manindersinghdhote"
-        DOCKER_IMAGE_NAME = "sspotifycloneappalpine"
+        DOCKER_IMAGE_NAME = "spotifycloneappalpine"
         DOCKER_FULL_IMAGE = "${DOCKER_REPOSITORY}/${DOCKER_IMAGE_NAME}"
         K8_CLUSTER_NAME = "kubernetes"
         K8_DEPLOYMENT_NAME = "spotifycloneappalpine-deployment"
